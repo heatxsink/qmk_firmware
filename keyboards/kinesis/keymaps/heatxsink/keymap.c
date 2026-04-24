@@ -193,45 +193,45 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case (char) _QWERTY:
             // Caps Lock Lit
-            writePinLow(LED_CAPS_LOCK_PIN);
-            writePinHigh(LED_NUM_LOCK_PIN);
-            writePinHigh(LED_SCROLL_LOCK_PIN);
-            writePinHigh(LED_COMPOSE_PIN);
+            gpio_write_pin_low(LED_CAPS_LOCK_PIN);
+            gpio_write_pin_high(LED_NUM_LOCK_PIN);
+            gpio_write_pin_high(LED_SCROLL_LOCK_PIN);
+            gpio_write_pin_high(LED_COMPOSE_PIN);
             break;
         case (char) _COLEMAK_MOD_DH:
-            writePinHigh(LED_CAPS_LOCK_PIN);
+            gpio_write_pin_high(LED_CAPS_LOCK_PIN);
             // Num Lock Lit
-            writePinLow(LED_NUM_LOCK_PIN);
-            writePinHigh(LED_SCROLL_LOCK_PIN);
-            writePinHigh(LED_COMPOSE_PIN);
+            gpio_write_pin_low(LED_NUM_LOCK_PIN);
+            gpio_write_pin_high(LED_SCROLL_LOCK_PIN);
+            gpio_write_pin_high(LED_COMPOSE_PIN);
             break;
         case (char) _WORKMAN:
-            writePinHigh(LED_CAPS_LOCK_PIN);
-            writePinHigh(LED_NUM_LOCK_PIN);
+            gpio_write_pin_high(LED_CAPS_LOCK_PIN);
+            gpio_write_pin_high(LED_NUM_LOCK_PIN);
             // Scroll Lock Lit
-            writePinLow(LED_SCROLL_LOCK_PIN);
-            writePinHigh(LED_COMPOSE_PIN);
+            gpio_write_pin_low(LED_SCROLL_LOCK_PIN);
+            gpio_write_pin_high(LED_COMPOSE_PIN);
             break;
         case (char) _KEYPAD:
-            writePinHigh(LED_CAPS_LOCK_PIN);
-            writePinHigh(LED_NUM_LOCK_PIN);
-            writePinHigh(LED_SCROLL_LOCK_PIN);
+            gpio_write_pin_high(LED_CAPS_LOCK_PIN);
+            gpio_write_pin_high(LED_NUM_LOCK_PIN);
+            gpio_write_pin_high(LED_SCROLL_LOCK_PIN);
             // Compose Lit
-            writePinLow(LED_COMPOSE_PIN);
+            gpio_write_pin_low(LED_COMPOSE_PIN);
             break;
         case (char) _LAYERS:
             // All LEDs Lit
-            writePinLow(LED_SCROLL_LOCK_PIN);
-            writePinLow(LED_NUM_LOCK_PIN);
-            writePinLow(LED_CAPS_LOCK_PIN);
-            writePinLow(LED_COMPOSE_PIN);
+            gpio_write_pin_low(LED_SCROLL_LOCK_PIN);
+            gpio_write_pin_low(LED_NUM_LOCK_PIN);
+            gpio_write_pin_low(LED_CAPS_LOCK_PIN);
+            gpio_write_pin_low(LED_COMPOSE_PIN);
             break;
         default:
             // Default layer
-            writePinHigh(LED_NUM_LOCK_PIN);
-            writePinHigh(LED_SCROLL_LOCK_PIN);
-            writePinHigh(LED_COMPOSE_PIN);
-            writePinHigh(LED_CAPS_LOCK_PIN);
+            gpio_write_pin_high(LED_NUM_LOCK_PIN);
+            gpio_write_pin_high(LED_SCROLL_LOCK_PIN);
+            gpio_write_pin_high(LED_COMPOSE_PIN);
+            gpio_write_pin_high(LED_CAPS_LOCK_PIN);
             break;
     }
   return state;
